@@ -24,11 +24,11 @@ public class EnterField extends TextField {
     private void addFocusedListener(){
         this.focusedProperty().addListener((observableValue, s, t1) -> {
             if(!t1) {
-            	updateChartBar();
+                updateChartBar();
             }
         });
     }
-    
+
     //if user adds a value to an empty field, then set the next field to editable
     //otherwise if user removes a value (empty string) then set the next field to read-only
     //this will force users to add values in sequential order so there are no empty fields between non-empty fields
@@ -60,7 +60,7 @@ public class EnterField extends TextField {
             //if user entered a value in the box
             if (!text.equals("")) {
                 int textValue = Integer.parseInt(text);
-                
+
                 //if user has selected Radix Sort from the list of algorithms
                 if (AlgorithmBox.getSelectedIndices().equals("Radix Sort")) {
                     //ensure user has entered a value between 10-50, then update the height of the bar in the
@@ -77,10 +77,13 @@ public class EnterField extends TextField {
                         this.setStyle("-fx-text-fill: red");
                         this.setTooltip(tooltip);
                     }
-                }  
-                
-             // Le Sun added
+                } 
+                // Le Sun added
                 else if (AlgorithmBox.getSelectedIndices().equals("Binary Search Tree")) {
+                	this.setStyle("-fx-text-fill: black");
+                }
+                // Xingxing added
+                else if (AlgorithmBox.getSelectedIndices().equals("Stack")) {
                 	this.setStyle("-fx-text-fill: black");
                 }
                 
@@ -100,9 +103,9 @@ public class EnterField extends TextField {
                         this.setTooltip(tooltip);
                     }
                 }
-                
-             // Le Sun added
+                // Le Sun added
                 MainWindow.circlePane.updateCircle(Integer.parseInt(this.getText()), fieldBox.getChildren().indexOf(this) - 1);
+                
             }
             //catch statement in case user entered any text that isn't an integer (letters, symbols, etc.)
             //will turn the text in the field red and add a tooltip to indicate the issue if user hovers over it
