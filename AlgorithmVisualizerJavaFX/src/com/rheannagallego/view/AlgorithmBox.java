@@ -43,9 +43,14 @@ public class AlgorithmBox extends VBox {
                     }
                 }
                 fieldBox.setLabel("Enter Values 10-50: ");
-            } 
+            }
+            
             // Le Sun Added
             else if (selectedIndices.equals("Binary Search Tree")) {
+            	fieldBox.setLabel("Enter any Integers:");
+            }
+            // Xingxing Added
+            else if (selectedIndices.equals("Stack")) {
             	fieldBox.setLabel("Enter any Integers:");
             }
             
@@ -56,7 +61,9 @@ public class AlgorithmBox extends VBox {
                     }
                 }
                 fieldBox.setLabel("Enter Values 1-50: ");
-            }    
+            }
+
+
         });
     }
 
@@ -70,9 +77,10 @@ public class AlgorithmBox extends VBox {
         algorithmList.getItems().add("Merge Sort");
         algorithmList.getItems().add("Quick Sort");
         algorithmList.getItems().add("Counting Sort");
-        algorithmList.getItems().add("Radix Sort"); 
-     // Le Sun added
+        algorithmList.getItems().add("Radix Sort");
+     // Le Sun added,Xingxing modify
         algorithmList.getItems().add("Binary Search Tree");
+        algorithmList.getItems().add("Stack");
     }
 
     //returns an instance of an algorithm class based on which one the user selects in the ListView
@@ -94,9 +102,9 @@ public class AlgorithmBox extends VBox {
            case "Counting Sort":
                return new CountingSortAnimation();
            case "Radix Sort":
-                return new RadixSortAnimation();
+               return new RadixSortAnimation();
            case "Binary Search Tree":  // Le Sun added
-        	   	return new BSTAnimation();
+       	   	   return new BSTAnimation();
            default:
                return null;
        }
@@ -107,8 +115,7 @@ public class AlgorithmBox extends VBox {
         return selectedIndices;
     }
     
-    
- // Le Sun added
+    // Le Sun added
     public static ListView<String> getAlgorithmList() { 
     	return algorithmList;
     }
